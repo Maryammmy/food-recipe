@@ -1,7 +1,7 @@
 import { Earth, Mail, Phone, User, Lock, Upload } from "lucide-react";
-import { IAuthInput } from "../interfaces/authInputsInterface";
+import { RegisterInput } from "../interfaces/authInputsInterface";
 
-export const registerInputs: IAuthInput[] = [
+export const registerInputs: RegisterInput[] = [
   {
     type: "text",
     placeholder: "UserName",

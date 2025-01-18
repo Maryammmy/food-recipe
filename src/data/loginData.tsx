@@ -1,7 +1,7 @@
-import { IAuthInput } from "../interfaces/authInputsInterface";
+import { LoginInput } from "../interfaces/authInputsInterface";
 import { Mail, Lock } from "lucide-react";
 
-export const loginInputs: IAuthInput[] = [
+export const loginInputs: LoginInput[] = [
   {
     type: "email",
     placeholder: "Enter your email",

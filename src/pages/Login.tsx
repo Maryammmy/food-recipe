@@ -1,5 +1,5 @@
-import LoginForm from "../components/login/loginForm";
 import loginIcon from "../assets/images/loginLogo.png";
+import LoginForm from "../components/login/loginForm";
 import Image from "../components/ui/Image";
 import { Link } from "react-router-dom";
 

@@ -2,30 +2,35 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { registerInputs } from "../../data/registerData";
 import Button from "../ui/Button";
 import Input from "../ui/Input";
-import { RegisterInputs } from "../../interfaces/authInputsInterface";
+import { RegisterNameInputs } from "../../interfaces/authInputsInterface";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "../../validation/registerSchema";
 import InputErrorMessage from "../ui/InputErrorMessage";
 import { registerApi } from "../../services/authService";
 import { convertToFormData } from "../../utils/convertToFormData";
 import toast from "react-hot-toast";
+import { ErrorResponse } from "../../interfaces";
 
 export default function RegisterForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegisterInputs>({
+  } = useForm<RegisterNameInputs>({
     resolver: yupResolver(registerSchema),
   });
-  const onSubmit: SubmitHandler<RegisterInputs> = async (data) => {
+  const onSubmit: SubmitHandler<RegisterNameInputs> = async (data) => {
     try {
       const formData = convertToFormData(data);
       const response = await registerApi(formData);
       console.log(response);
       toast.success(response?.data?.message);
     } catch (error) {
-      console.log(error);
+      const customError = error as ErrorResponse;
+      const message = customError?.response?.data.message;
+      if (message) {
+        toast.error(message);
+      }
     }
   };
 

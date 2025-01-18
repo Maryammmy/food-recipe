@@ -1,12 +1,18 @@
 import { ReactNode } from "react";
 
-export interface IAuthInput {
+export interface RegisterInput {
   icon: ReactNode;
   type: string;
   placeholder?: string;
-  name: keyof RegisterInputs;
+  name: keyof RegisterNameInputs;
 }
-export type RegisterInputs = {
+export interface LoginInput {
+  icon: ReactNode;
+  type: string;
+  placeholder?: string;
+  name: keyof LoginNameInputs;
+}
+export type RegisterNameInputs = {
   userName: string;
   email: string;
   country: string;
@@ -14,4 +20,8 @@ export type RegisterInputs = {
   profileImage?: FileList;
   password: string;
   confirmPassword: string;
+};
+export type LoginNameInputs = {
+  email: string;
+  password: string;
 };
