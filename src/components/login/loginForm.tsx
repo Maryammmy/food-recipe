@@ -6,8 +6,11 @@ export default function loginForm() {
   return (
     <form>
       <div className="flex flex-col gap-3">
-        {loginInputs.map((input) => (
-          <div className="flex items-center bg-gray-100 py-3 gap-2 rounded-md px-2 focus-within:border focus-within:border-primary">
+        {loginInputs.map((input, index) => (
+          <div
+            key={index}
+            className="flex items-center bg-gray-100 py-3 gap-2 rounded-md px-2 focus-within:border focus-within:border-primary"
+          >
             <span>{input.icon}</span>
             <Input
               name={input.name}
